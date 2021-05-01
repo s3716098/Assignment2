@@ -10,7 +10,8 @@ void testSize();
 void testClear();
 
 int main(void) {
-
+    testAddFront();
+    testAddBack();
 }
 
 void testAddFront() {
@@ -22,16 +23,28 @@ void testAddFront() {
     test->addFront(t);
 
 
-    msg += test->size() == 0 ? "EMPTY LIST TEST: FAILED\n" : 
-    "EMPTY LIST TEST: PASSED";
+    msg += test->size() == 0 ? "ADD FRONT TEST: FAILED\n" : 
+    "ADD FRONT TEST: PASSED";
 
     delete test;
-    delete t;
-    
 
-    // test with two nodes in list
+    std::cout << msg << std::endl;
+}
+
+void testAddBack() {
+    std::string msg = "";
+    LinkedList* test = new LinkedList();
+    Tile* t = new Tile();
+
+    test->addFront(t);
+    test->addBack(t);
+
+
+    msg += test->size() > 1 ? "ADD BACK TEST: FAILED\n" : 
+    "ADD BACK TEST: PASSED";
+
     delete test;
-    test = new LinkedList();
 
+    std::cout << msg << std::endl;
 }
 

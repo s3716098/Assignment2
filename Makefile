@@ -8,5 +8,9 @@ clean:
 qwirkle: Tile.o Node.o LinkedList.o qwirkle.o
 	g++ -Wall -Werror -std=c++14 -g -O -o $@ $^
 
+test-linkedlist: Tile.o Node.o LinkedList.o testLinkedList.o
+	g++ -Wall -Werror -std=c++14 -g -O -o $@ $^
+
+
 %.o: %.cpp
 	g++ -Wall -Werror -std=c++14 -g -O -c $^

@@ -9,14 +9,16 @@ LinkedList::LinkedList() {
 }
 
 LinkedList::~LinkedList() {
+   this->clear();
 }
 
 int LinkedList::size() {
    int size = 0;
    Node* n = new Node(*head);
 
-   while( n != nullptr && n->next != nullptr) {
+   while( n != nullptr) {
       size++;
+      n = n->next;
    }
 
    return size;
@@ -24,7 +26,7 @@ int LinkedList::size() {
 
 void LinkedList::clear() {
 
-   while(head !=  nullptr && head->next != nullptr) {
+   while(head !=  nullptr) {
       Node* n = head->next;
       delete head;
       head = n;
